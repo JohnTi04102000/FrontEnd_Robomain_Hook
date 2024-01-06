@@ -1,0 +1,120 @@
+.swiper-container{
+  width: 100%;
+  height: fit-content;
+  //border: 1px solid red;
+  margin: 50px 0px;
+
+  #app {
+      height: 100%;
+    }
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+    
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+    
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .WO-container{
+      width: 80%;
+      height: 100%;
+      margin: 0 auto;
+      //border: 1px solid green;
+
+      .WO-header{
+          display: flex;
+          gap: 20px;
+          //border: 1px solid red;
+          font-size:30px;
+
+          h4{
+              font-weight: 700;
+          }
+      }
+
+      .WO-body{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          margin-top: 50px;
+
+          .WO-content{
+              width: 50%;
+
+              h3{
+                  font-weight: 700;
+                  margin-bottom: 30px;
+                  color: #212021;
+                  font-size: 44px;
+                  line-height:46px;
+              }
+
+              p{
+                  line-height:40px;
+                  margin: 50px 0;
+                  font-weight: 500;
+              }
+          }
+
+          .WO-image{
+              width: 50%;
+              height: 100%;
+
+              img {
+                  width: 300px;
+                  background-size: cover;
+                  background-position: center;
+                  margin: 0 auto 50px;
+                  border-radius: 5px;
+                  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+                }
+          }
+
+          .WO-image-analytic{
+              width: 50%;
+              height: 100%;
+
+              img {
+                  width: 500px;
+                  height: auto;
+                  background-size: cover;
+                  background-position: center;
+                  margin: 0 auto 50px;
+                  border-radius: 5px;
+                  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+                }
+          }
+      }
+    }
+
+}

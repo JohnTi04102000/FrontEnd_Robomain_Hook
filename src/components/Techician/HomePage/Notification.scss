@@ -1,0 +1,22 @@
+.notification
+{
+    position: relative;
+
+    .notification-content{
+        padding: 15px;
+        position: absolute;
+        width: 400px;
+        height: 500px;
+        background-color: white;
+        margin-top:5px;
+        border-radius: 7px;
+        font-size: 14px;
+        cursor: pointer;       
+
+        h4{
+            color: red;
+            border-bottom: solid 3px black;
+            cursor: pointer;
+        }
+    }
+}
