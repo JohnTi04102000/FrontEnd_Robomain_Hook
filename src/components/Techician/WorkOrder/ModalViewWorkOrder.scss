@@ -1,0 +1,55 @@
+.modal-container {
+  width: 100%;
+  height: fit-content;
+  //border: 1px solid black;
+  display: flex;
+
+  .wo-container {
+    width: 80%;
+    height: 100%;
+    //border: 1px solid red;
+    margin: 0 auto;
+    display: flex;
+
+    .content-card {
+      width: 100%;
+      height: fit-content;
+      margin: 20px auto;
+      border: 1px solid #a8aaae;
+      border-radius: 10px;
+      padding: 20px;
+
+      p {
+        font-size: 16px;
+        font-weight: 650;
+      }
+    }
+  }
+
+  .task-container {
+    width: 80%;
+    height: 100vh;
+    //border: 1px solid green;
+    margin: 0 auto;
+
+    .task-header {
+      width: 80%;
+      height: 70px;
+      margin: 20px auto;
+      //border: 1px solid rgb(60, 76, 60);
+      display: flex;
+      font-size: 24px;
+      font-weight: 700;
+      gap: 30px;
+      align-items: center;
+
+    }
+
+    .task-content{
+      width: 100%;
+      height: fit-content;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+    }
+  }
+}

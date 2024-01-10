@@ -3,8 +3,8 @@ import localStorage from "localStorage";
 
 const createAxiosInstance = () => {
   const instance = axios.create({
-    // baseURL: 'http://103.98.160.26:1010/',
-    baseURL: 'http://localhost:8080/'
+    baseURL: 'http://103.98.160.26:1010/',
+    // baseURL: 'http://localhost:8080/'
   });
 
   // Thêm interceptor trước khi gửi request

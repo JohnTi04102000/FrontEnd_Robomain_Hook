@@ -16,4 +16,12 @@ const deleteTask = (id) => {
     return axios.delete(`/api/v1/delete-task/${id}`);
 }
 
-export {getAllTasks, getTaskById, createTask, deleteTask};
+const updateTask = (id) => {
+    return axios.get(`/api/v1/updateTask/${id}`);
+}
+
+const addNoteTask = (data) => {
+    return axios.put(`/api/v1/note-task`, data);
+}
+
+export {getAllTasks, getTaskById, createTask, deleteTask, updateTask, addNoteTask};

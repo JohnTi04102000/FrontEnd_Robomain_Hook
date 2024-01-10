@@ -15,7 +15,7 @@ import ModalCreateTask from "./ModalCreateTask";
 import { toast } from "react-toastify";
 
 const ModalTask = (props) => {
-    const [openModal, setIsOpenModal] = useState(false)
+  const [openModal, setIsOpenModal] = useState(false);
   const [infoTask, setInfoTask] = useState([]);
   let data = props.currentWO;
 
@@ -28,15 +28,15 @@ const ModalTask = (props) => {
 
   const open = () => {
     setIsOpenModal(true);
-  }
+  };
 
   const close = () => {
     setIsOpenModal(false);
-  }
+  };
 
   const resetTask = () => {
     getAllTaskByID(data.id);
-  }
+  };
 
   const formatDateToInputValue = (dateTimeString) => {
     const date = new Date(dateTimeString);
@@ -110,24 +110,6 @@ const ModalTask = (props) => {
       key: "status_Task",
     },
     {
-      render: (_, { tags }) => (
-        <>
-          {tags &&
-            tags.map((tag) => {
-              let color = tag.length > 5 ? "geekblue" : "green";
-              if (tag === "loser") {
-                color = "volcano";
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-        </>
-      ),
-    },
-    {
       title: "Action",
       key: "action",
       render: (_, record) => (
@@ -142,7 +124,7 @@ const ModalTask = (props) => {
             cancelText="No"
           >
             <button className="btn-deleteTask">
-              <i class="fa-solid fa-trash-can-slash"></i>
+            <i class="fa-solid fa-delete-left"></i>
             </button>
           </Popconfirm>
         </Space>
@@ -161,7 +143,9 @@ const ModalTask = (props) => {
         }}
         extra={
           <Space>
-            <Button type="primary" onClick={() => open()}>Create new task</Button>
+            <Button type="primary" onClick={() => open()}>
+              Create new task
+            </Button>
           </Space>
         }
       >
@@ -188,10 +172,10 @@ const ModalTask = (props) => {
           </Row>
         </Form>
       </Drawer>
-      <ModalCreateTask 
-      openModal={openModal}
-      closeModal={close}
-      reset={resetTask}
+      <ModalCreateTask
+        openModal={openModal}
+        closeModal={close}
+        reset={resetTask}
       />
     </>
   );

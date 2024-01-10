@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Notification.scss";
 import { FaBell } from "react-icons/fa";
-// import { getWorkOrderExpire } from "../../service/WorkOrderService";
+import { getWorkOrderExpire } from "../../../services/WorkOrderService";
 import Calendar from 'react-calendar';
 import "react-calendar/dist/Calendar.css";
 
@@ -13,19 +13,19 @@ const NotificationIcon = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   useEffect(() => {
-    //getAllNotification();
+    getAllNotification();
   }, []);
 
-//   const getAllNotification = async () => {
-//     let id = localStorage.getItem('id');
-//     try {
-//       let lits_WO = await getWorkOrderExpire(id);
-//       setNewNotifications(lits_WO.data.length);
-//       setLits_WO(lits_WO.data);
-//     } catch (e) {
-//       console.error(e);
-//     }
-//   };
+  const getAllNotification = async () => {
+    let id = localStorage.getItem('id');
+    try {
+      let lits_WO = await getWorkOrderExpire(id);
+      setNewNotifications(lits_WO.data.length);
+      setLits_WO(lits_WO.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const formatDateToInputValue = (dateTimeString) => {
     const date = new Date(dateTimeString);

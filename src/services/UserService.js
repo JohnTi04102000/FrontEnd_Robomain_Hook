@@ -4,9 +4,6 @@ const getAllUsers = () => {
     return axios.get('/api/v1/users');
 }
 
-const getAllUser = () => {
-    return axios.get('/users');
-}
 
 const createNewUserService = (data) => {
     return axios.post('/api/v1/create-user', data);
@@ -26,4 +23,4 @@ const updateUser = (data_User) => {
     console.log('data_User', data_User);
     return axios.put('/api/v1/update-user', data_User);
 }
-export {getAllUsers, getAllUser, createNewUserService, uploadFile, deleteUser, updateUser};
+export {getAllUsers, createNewUserService, uploadFile, deleteUser, updateUser};

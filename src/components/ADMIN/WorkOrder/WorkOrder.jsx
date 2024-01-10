@@ -44,10 +44,6 @@ const WorkOrder = () => {
     setIsOpenModal(true);
   };
 
-  const handleOpenTask = () => {
-    setIsOpenTask(true);
-  };
-
   const handleCloseModal = () => {
     setIsOpenModal(false);
   };
@@ -221,24 +217,6 @@ const WorkOrder = () => {
         },
       ],
       onFilter: (value, record) => record.assign.indexOf(value) === 0,
-    },
-    {
-      render: (_, { tags }) => (
-        <>
-          {tags &&
-            tags.map((tag) => {
-              let color = tag.length > 5 ? "geekblue" : "green";
-              if (tag === "loser") {
-                color = "volcano";
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-        </>
-      ),
     },
     {
       title: "Action",

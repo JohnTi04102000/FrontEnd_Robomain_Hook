@@ -16,6 +16,7 @@ import Users from "../ADMIN/User/User";
 import Assets from "../ADMIN/Asset/Asset";
 import { NavLink } from "react-router-dom";
 import PrivatePage from "../../HOC/PrivatePage";
+import Account from "../ADMIN/Account/Account";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -59,6 +60,7 @@ const Dashboard = () => {
     },
     getItem("Users", "sub5", <UserOutlined />, [
       getItem(<div>All Users</div>, "15"),
+      getItem(<div>All Accounts</div>, "16"),
     ]),
     getItem("AR module", "sub6", <FileSearchOutlined />, [
       getItem(
@@ -114,6 +116,9 @@ const Dashboard = () => {
       break;
     case "15":
       contentToDisplay = <Users />;
+      break;
+    case "16":
+      contentToDisplay = <Account />;
       break;
     case "10":
       contentToDisplay = <Assets />;
