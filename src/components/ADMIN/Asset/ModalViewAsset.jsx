@@ -23,7 +23,7 @@ const ModalViewAsset = (props) => {
             <div className="detail-info">
               <div className="left-detail">
                 <Image
-                  src={`http://localhost:8080/image/${infoAsset.image}`}
+                  src={`http://103.98.160.26:1010/image/${infoAsset.image}`}
                   key={infoAsset.id}
                 />
               </div>

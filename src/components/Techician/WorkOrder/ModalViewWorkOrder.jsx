@@ -33,6 +33,7 @@ const ModalViewWorkOrder = (props) => {
   useEffect(() => {
     if (data) {
       onFill();
+      setInfoTask([]);
       getAllTaskByID(data.id);
       console.log("pro: " + JSON.stringify(data));
     }
