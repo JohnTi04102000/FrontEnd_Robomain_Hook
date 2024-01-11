@@ -52,6 +52,7 @@ const ModalTask = (props) => {
         toast.error("Id Task not found!");
       } else {
         await deleteTask(id);
+        setInfoTask([]);
         resetTask();
         toast.success("Delete task successfully");
       }

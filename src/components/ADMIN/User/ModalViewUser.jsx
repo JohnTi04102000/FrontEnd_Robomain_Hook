@@ -11,7 +11,7 @@ const ModalViewUser = (props) => {
   return (
     <>
       <Modal
-        title="Information asset"
+        title="Information user"
         open={props.openInfo}
         onCancel={props.closeInfo}
         okButtonProps={{ style: { display: "none" } }}

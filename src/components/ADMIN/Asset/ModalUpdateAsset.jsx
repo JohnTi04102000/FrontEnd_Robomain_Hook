@@ -93,7 +93,7 @@ const ModalUpdateAsset = (props) => {
     setDateImport(dateString);
   };
 
-  const updateWorkOrder = () => {
+  const updateAsset = () => {
     try {
       const file = fileInputRef.current.files[0];
       console.log(fileInputRef.current.files[0]);
@@ -130,7 +130,7 @@ const ModalUpdateAsset = (props) => {
           <Space>
             <Button
               onClick={() => {
-                updateWorkOrder();
+                updateAsset();
               }}
               type="primary"
             >

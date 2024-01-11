@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { getAllAccounts, createNewAccounts, deleteAccount } from "../../../services/AccountService";
+import { getAllAccounts, createNewAccounts, deleteAccount, updateAccount } from "../../../services/AccountService";
 import { Space, Table, Popconfirm } from "antd";
 import ModalAddAccount from "./ModalAddAccount";
+import ModalUpdateAccount from "./ModalUpdateAccount";
 import { toast } from "react-toastify";
 
 const Account = () => {
   const [listAccount, setListAccount] = useState([]);
+  const [infoAccount, setInfoAccount] = useState(null);
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
+  const [isOpenUpdate, setIsOpenUpdate] = useState(false);
 
   useEffect(() => {
     getAccounts();
@@ -34,7 +37,7 @@ const Account = () => {
   const handleDeleteAccount = async (id) => {
     try {
       if (!id) {
-        toast.error("Id asset not found!");
+        toast.error("Id account not found!");
       } else {
         let result = await deleteAccount(id);
         if (result) {
@@ -53,6 +56,30 @@ const Account = () => {
 
   const handleCloseDrawer = () => {
     setIsOpenDrawer(false);
+  };
+
+  const handleOpenUpdate = (info) => {
+    setInfoAccount(info);
+    setIsOpenUpdate(true);
+  };
+
+  const handleCloseUpdate = () => {
+    setIsOpenUpdate(false);
+  };
+
+  const handleUpdateAccount = async (data) => {
+    try {
+      if (!data) {
+        console.log("Data is empty!");
+      } else {
+        await updateAccount(data);
+        await getAccounts();
+        handleCloseUpdate();
+        toast.success("Update account successfully!");
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const columns = [
@@ -78,9 +105,9 @@ const Account = () => {
         <Space size="middle">
           <button
             className="btn-edit"
-            // onClick={() => {
-            //   getCurrentWO(record);
-            // }}
+            onClick={() => {
+              handleOpenUpdate(record);
+            }}
           >
             <i class="fa-solid fa-pencil"></i>
           </button>
@@ -91,7 +118,7 @@ const Account = () => {
             okText="Yes"
             cancelText="No"
             onConfirm={() => {
-                handleDeleteAccount(record.id);
+                handleDeleteAccount(record.id_user);
             }}
           >
             <button className="btn-delete">
@@ -122,6 +149,12 @@ const Account = () => {
       isOpenDrawer={isOpenDrawer}
       isCloseDrawer={handleCloseDrawer}
       createNewAccount={handleCreateAccount}
+      />
+      <ModalUpdateAccount
+      isOpenUpdate={isOpenUpdate}
+      isCloseUpdate={handleCloseUpdate}
+      currentAccount={infoAccount}
+      handleUpdateAccount={handleUpdateAccount}
       />
     </>
   );

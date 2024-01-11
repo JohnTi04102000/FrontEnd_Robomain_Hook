@@ -174,7 +174,7 @@ const ModalViewWorkOrder = (props) => {
           </Popconfirm>
           <Popconfirm
             title="Add note for this task"
-            description="Do you want add not fot this task"
+            description="Do you want add note for this task"
             onConfirm={() => {
               showModal(record.id);
             }}
