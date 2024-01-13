@@ -22,7 +22,7 @@ const ModalViewUser = (props) => {
             <div className="detail-info">
               <div className="left-detail">
                 <Image
-                  src={`http://localhost:8080/image/${infoUser.image}`}
+                  src={`http://103.98.160.26:1010/image/${infoUser.image}`}
                   key={infoUser.id}
                 />
               </div>

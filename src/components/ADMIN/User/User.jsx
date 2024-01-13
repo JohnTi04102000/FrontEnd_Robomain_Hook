@@ -3,17 +3,20 @@ import {
   getAllUsers,
   createNewUserService,
   deleteUser,
+  updateUser,
 } from "../../../services/UserService";
 import { uploadFile } from "../../../services/UserService";
 import { toast } from "react-toastify";
 import { Space, Table, Popconfirm } from "antd";
 import ModalAddUser from "./ModalAddUser";
 import ModalViewUser from "./ModalViewUser";
+import ModalUpdateUser from "./ModalUpdateUser";
 const User = () => {
   const [listUser, setListUser] = useState([]);
   const [infoUser, setInfoUser] = useState(null);
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
+  const [isOpenUpdate, setIsOpenUpdate] = useState(false);
 
   useEffect(() => {
     getUsers();
@@ -28,13 +31,23 @@ const User = () => {
   };
 
   const handleOpenModalInfo = (user) => {
-    console.log('s:', user);
+    console.log("s:", user);
     setInfoUser(user);
     setIsOpenInfo(true);
   };
 
   const handleCloseInfo = () => {
     setIsOpenInfo(false);
+  };
+
+  const handleOpenModalUpdate = (user) => {
+    console.log("s:", user);
+    setInfoUser(user);
+    setIsOpenUpdate(true);
+  };
+
+  const handleCloseUpdate = () => {
+    setIsOpenUpdate(false);
   };
 
   const getUsers = async () => {
@@ -56,7 +69,7 @@ const User = () => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
-    return `${day} -${month} - ${year}`;
+    return `${day} - ${month} - ${year}`;
   };
 
   const handleCreateUser = async (data) => {
@@ -70,6 +83,21 @@ const User = () => {
     } catch (e) {
       toast.error(e.response.data.errCode);
       handleCloseDrawer(false);
+    }
+  };
+
+  const handleUpdateUser = async (data) => {
+    try {
+      if (!data) {
+        console.log("Data is empty!");
+      } else {
+        await updateUser(data);
+        await getUsers();
+        handleCloseUpdate();
+        toast.success("Update user successfully!");
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -135,9 +163,9 @@ const User = () => {
           </button>
           <button
             className="btn-edit"
-            // onClick={() => {
-            //   getCurrentWO(record);
-            // }}
+            onClick={() => {
+              handleOpenModalUpdate(record);
+            }}
           >
             <i class="fa-solid fa-pencil"></i>
           </button>
@@ -185,6 +213,14 @@ const User = () => {
         openInfo={isOpenInfo}
         closeInfo={handleCloseInfo}
         currentUser={infoUser}
+      />
+
+      <ModalUpdateUser
+        isOpenUpdate={isOpenUpdate}
+        isCloseUpdate={handleCloseUpdate}
+        updateUser={handleUpdateUser}
+        currentUser={infoUser}
+        uploadFile={handleUploadFile}
       />
     </>
   );
